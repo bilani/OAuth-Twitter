@@ -1,0 +1,21 @@
+.hdr_bkgcolor {
+    background-color: #599E38;
+    border-color:#599E38;
+}
+.hdr_label{
+    font-size: 14px;
+    color: #333333;
+    text-align: center;
+} 
+.trans_btn{
+    text-align:center;
+   
+}
+.trans_img{
+    width:20px;
+    height:20px;
+}
+.patp-btn-group > .btn.active , .fgrade-btn-group > .btn.active {
+    color : red;
+}
+ 
