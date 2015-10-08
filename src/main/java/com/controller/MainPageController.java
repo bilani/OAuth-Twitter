@@ -32,7 +32,7 @@ public class MainPageController {
 		return mv;
 	}
 	@RequestMapping( value="/verify", method = RequestMethod.POST)
-	public ModelAndView verifyCredentials(@RequestParam("userName") String userName,
+	public ModelAndView verifyCredentials(@RequestParam("user") String userName,
 			@RequestParam("pass") String pass,ModelAndView mv,HttpSession session) {
 		mv.setViewName("logout");
 		return mv;
@@ -79,5 +79,12 @@ public class MainPageController {
             throw new ServletException(e);
         }
         response.sendRedirect(request.getContextPath() + "/");
+	}
+	@RequestMapping( value="/signupverification", method = RequestMethod.POST)
+	public ModelAndView signupVerifyCredentials(@RequestParam("name") String name,@RequestParam("lastName") String lastName,@RequestParam("user") String userName,
+			@RequestParam("pass") String pass,@RequestParam("email") String email,ModelAndView mv,HttpSession session) {
+		System.out.println(userName +" "+lastName+" "+pass+" "+email+" "+name);
+		mv.setViewName("logout");
+		return mv;
 	}
 }

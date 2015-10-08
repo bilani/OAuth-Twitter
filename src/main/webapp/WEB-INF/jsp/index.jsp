@@ -4,12 +4,10 @@
 <html>
 <head>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-<link href="<c:url value="/resources/" />css/bootstrap.min.css"
-	rel="stylesheet">
+<link href="<c:url value="/resources/" />css/bootstrap.min.css"	rel="stylesheet">
 <link href="<c:url value="/resources/" />css/style.css" rel="stylesheet">
 <title>Sign in with Twitter example</title>
-<link href="<c:url value="/resources/" />css/bootstrap.min.css"
-	rel="stylesheet">
+<link href="<c:url value="/resources/" />css/bootstrap.min.css"	rel="stylesheet">
 <link href="<c:url value="/resources/" />css/login.css" rel="stylesheet">
 </head>
 <script
@@ -60,9 +58,10 @@
 									src="./images/Sign-in-with-Twitter-darker.png" /></a>
 							
 						</div>
-												<div class="col-sm-12">
+						<div class="col-sm-12">
 							
-								<a href="SingUp">link</a>
+								<a href="SingUp"><img
+									src="./images/Signup.png" width="80" height="50" /></a>
 							
 						</div>
 						<h2>${alertMsg}</h2>
