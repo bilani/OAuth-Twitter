@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,12 +21,19 @@ import twitter4j.auth.RequestToken;
 import twitter4j.conf.Configuration;
 import twitter4j.conf.ConfigurationBuilder;
 
+import com.doman.login;
+import com.repository.LoginRepository;
+
 @Controller
 @RequestMapping("/")
 public class MainPageController {
 	private static final long serialVersionUID = -6205814293093350242L;
 	private static final String CONSUMER_KEY = "hJkRbJz9ZYcu0tii1ycbnyS0a";
 	private static final String CONSUMER_SECRET = "GMZclELmLdsO8ziGgZ47itMDE6HfXu8HtqspW1wpUAMDT4c7aZ";
+	
+	 @Autowired
+	 private LoginRepository loginRepository;
+	 
 	@RequestMapping(  method = RequestMethod.GET)
 	public ModelAndView initMainPage(ModelAndView mv) {
 		mv.setViewName("index");
@@ -84,6 +92,12 @@ public class MainPageController {
 	public ModelAndView signupVerifyCredentials(@RequestParam("name") String name,@RequestParam("lastName") String lastName,@RequestParam("user") String userName,
 			@RequestParam("pass") String pass,@RequestParam("email") String email,ModelAndView mv,HttpSession session) {
 		System.out.println(userName +" "+lastName+" "+pass+" "+email+" "+name);
+		login login = new login();
+		login.setLastName(lastName);
+		login.setLastName(name);
+		login.setPassword(pass);
+		login.setUserName(userName);
+		loginRepository.save(login);
 		mv.setViewName("logout");
 		return mv;
 	}
