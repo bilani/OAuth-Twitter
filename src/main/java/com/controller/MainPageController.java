@@ -94,9 +94,13 @@ public class MainPageController {
 		System.out.println(userName +" "+lastName+" "+pass+" "+email+" "+name);
 		login login = new login();
 		login.setLastName(lastName);
-		login.setLastName(name);
+		login.setName(name);
 		login.setPassword(pass);
 		login.setUserName(userName);
+		login.setEmail(email);
+		login.setIdlogin((long) 5);
+		
+		
 		loginRepository.save(login);
 		mv.setViewName("logout");
 		return mv;

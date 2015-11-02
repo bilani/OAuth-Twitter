@@ -7,8 +7,8 @@ import org.springframework.data.domain.Pageable;
 import com.doman.login;
 
 
-public interface LoginRepository extends CrudRepository<login, Long>{
+public interface LoginRepository extends CrudRepository<login, Integer>{
 	
-	Page<login> findAll(Pageable pageable);
+	/*Page<login> findAll(Pageable pageable);*/
 
 }
