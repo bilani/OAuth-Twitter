@@ -21,8 +21,8 @@ import twitter4j.auth.RequestToken;
 import twitter4j.conf.Configuration;
 import twitter4j.conf.ConfigurationBuilder;
 
-import com.doman.login;
-import com.repository.LoginRepository;
+import com.model.LoginDao;
+import com.model.login;
 
 @Controller
 @RequestMapping("/")
@@ -31,8 +31,8 @@ public class MainPageController {
 	private static final String CONSUMER_KEY = "hJkRbJz9ZYcu0tii1ycbnyS0a";
 	private static final String CONSUMER_SECRET = "GMZclELmLdsO8ziGgZ47itMDE6HfXu8HtqspW1wpUAMDT4c7aZ";
 	
-	 @Autowired
-	 private LoginRepository loginRepository;
+	  @Autowired
+	  private LoginDao loginDao;
 	 
 	@RequestMapping(  method = RequestMethod.GET)
 	public ModelAndView initMainPage(ModelAndView mv) {
@@ -92,16 +92,16 @@ public class MainPageController {
 	public ModelAndView signupVerifyCredentials(@RequestParam("name") String name,@RequestParam("lastName") String lastName,@RequestParam("user") String userName,
 			@RequestParam("pass") String pass,@RequestParam("email") String email,ModelAndView mv,HttpSession session) {
 		System.out.println(userName +" "+lastName+" "+pass+" "+email+" "+name);
-		login login = new login();
+		login login  = new login();
 		login.setLastName(lastName);
 		login.setName(name);
 		login.setPassword(pass);
 		login.setUserName(userName);
 		login.setEmail(email);
-		login.setIdlogin((long) 5);
+		login.setIdlogin( 5);
+		loginDao.save(login);
 		
-		
-		loginRepository.save(login);
+//		loginRepository.save(login);
 		mv.setViewName("logout");
 		return mv;
 	}

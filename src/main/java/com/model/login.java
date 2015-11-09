@@ -1,4 +1,4 @@
-package com.doman;
+package com.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,7 +12,7 @@ public class login {
 
 	@Id
 	@GeneratedValue
-	private Long idlogin;
+	private long idlogin;
 
 	@Column(nullable = false)
 	private String userName;
@@ -29,11 +29,11 @@ public class login {
 	@Column(nullable = false)
 	private String password;
 
-	public Long getIdlogin() {
+	public long getIdlogin() {
 		return idlogin;
 	}
 
-	public void setIdlogin(Long idlogin) {
+	public void setIdlogin(long idlogin) {
 		this.idlogin = idlogin;
 	}
 
