@@ -42,6 +42,16 @@ public class MainPageController {
 	@RequestMapping( value="/verify", method = RequestMethod.POST)
 	public ModelAndView verifyCredentials(@RequestParam("user") String userName,
 			@RequestParam("pass") String pass,ModelAndView mv,HttpSession session) {
+		try{
+		login login = loginDao.findByUserName(userName);
+		System.out.println(login.getIdlogin());
+		}
+		catch (Exception ex) {
+			mv.addObject("alertMsg", "incorrect credentials");
+			mv.setViewName("/");
+		}
+		
+		
 		mv.setViewName("logout");
 		return mv;
 	}
